@@ -6,7 +6,7 @@ const AboutUs = () => {
       <Header content="من نحن ؟"/>
       <div className="row">
         <div className="col-12">
-          <div className="content p-5" style={{backgroundColor: '#FAFAFA' }}>
+          <div className="content p-5" style={{backgroundColor: '#FAFAFA' , borderRadius: '20px' }}>
             
             <h3> <strong>.</strong> من نحن؟ </h3>
             <p>
