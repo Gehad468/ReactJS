@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import ConfirmTwo from './pages/confirmMessageTwo';
 import PaymentGetway from './pages/paymentGetway';
 import Location from './pages/location';
 import TermsAndConditions from './pages/TermsAndCondition';
+import SuccessfullyRegistered from './pages/successfullyRegistered';
 import Contact from './pages/contact';
 import Signup from './pages/signup';
 import Terms from './pages/recovery';
@@ -36,7 +38,9 @@ function App() {
           {/* <TermsAndConditions /> */}
           {/* <Terms /> */}
           {/* <Location/> */}
-          <PaymentGetway/>
+          {/* <PaymentGetway/> */}
+          {/* <SuccessfullyRegistered/> */}
+          <ConfirmTwo/>
         </div>
         <Footer />
       </div>

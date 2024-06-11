@@ -55,3 +55,23 @@ color:#135D66;
 .text-size-large{
   font-size: 3rem;
 }
+
+.cardBig {
+  background: #EFEFEF;
+  text-align: center;
+  border: none;
+  height: 30rem;
+}
+
+.card-text  {
+  background-color: #135D66;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding:1.3rem;
+  line-height: 1.5;
+}
+
+.low {
+  margin-top:-75px;
+}
