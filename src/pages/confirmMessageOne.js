@@ -45,7 +45,7 @@ const ConfirmMessageOne = () => {
                 key={index}
                 type="text"
                 maxLength="1"
-                className="input-style mx-1"
+                className="input-style mx-1 text-center"
               />
             ))}
           </div>
