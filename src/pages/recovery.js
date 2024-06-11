@@ -7,7 +7,7 @@ const Terms = () => {
     <div className="container my-5">
       <Header content='سياسة إلغاء واسترجاع المبلغ'/>
       <div className="row">
-        <div className="col-12 mb-4  p-5" style={{backgroundColor: '#FAFAFA' }}>
+        <div className="col-12 mb-4  p-5" style={{backgroundColor: '#FAFAFA', borderRadius: '20px'  }}>
           <h3>1. الإلغاء والاسترجاع:</h3>
           <ul className="dashed-list">
             <li>يحق للعميل إلغاء الخدمة وطلب استرجاع المبلغ خلال مدة لا تتجاوز 15 يومًا من تاريخ الاشتراك.</li>
