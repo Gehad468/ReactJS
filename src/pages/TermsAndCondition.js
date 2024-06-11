@@ -1,14 +1,11 @@
 import React from 'react';
 import './TermsAndCondition';
+import Header from '../components/header'
 
 const TermsAndConditions = () => {
   return (
     <div className="container my-5">
-    <div className="row">
-      <div className="col-12 mb-4">
-        <h1 className="text-center mb-4"> سياسة وأحكام التطبيق</h1>
-      </div>
-    </div>
+    <Header content=' سياسة وأحكام التطبيق'/>
     <div className="row " >
       <div className="col-12 mb-4  p-5 " style={{backgroundColor: '#FAFAFA' }}>
         <p>مرحبًا بك في تطبيق جدولة تسليم الشحنات. يرجى قراءة سياسة وأحكام الاستخدام التالية بعناية قبل استخدام التطبيق.</p>
