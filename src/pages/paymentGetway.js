@@ -1,10 +1,13 @@
 import React from 'react';
 import Header from '../components/header';
 import ButtonOne from '../components/buttonOne';
-import visa from "../assets/visa.jpeg"
-import paypal from "../assets/paypal.jpeg"
-import mastercard from "../assets/mastercard.jpeg"
+import visa from "../assets/visa.jpeg";
+import paypal from "../assets/paypal.jpeg";
+import mastercard from "../assets/mastercard.jpeg";
 import Form from 'react-bootstrap/Form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+
 const countries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
   "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
@@ -36,11 +39,12 @@ const countries = [
   "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America",
   "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ];
+
 const PaymentGetway = () => {
   return (
     <div className="container my-5">
-      <Header content='بوابة الدفع'/>
-      <div className="row justify-content-center"style={{ backgroundColor: '#FAFAFA', borderRadius: '20px'}}>
+      <Header content='بوابة الدفع' />
+      <div className="row justify-content-center" style={{ backgroundColor: '#FAFAFA', borderRadius: '20px' }}>
         <div className="col-lg-12 p-4">
           <div>
             <h2>وسائل الدفع</h2>
@@ -53,25 +57,27 @@ const PaymentGetway = () => {
         </div>
         <div className="col-lg-10 mb-4">
           <form>
-            <div >
-              <div className="mb-3 col-lg-10">
-                <input type="text" className="form-control" placeholder="Credit/Debit Card"style={{ height: '50px', textAlign: 'center'}} />
+            <div>
+              <div className="mb-3 col-lg-10 position-relative">
+                <input type="text" className="form-control" placeholder="Credit/Debit Card" style={{ height: '50px', textAlign: 'center' }} />
+                <FontAwesomeIcon icon={faCreditCard} className="position-absolute" style={{ left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#22A6B6' }} />
               </div>
-                <div className="mb-3 col-lg-10">
-                  <input type="text" className="form-control" placeholder="Card number          MM/YY       CW"style={{ height: '50px', textAlign: 'center'}} />
-                </div>
-              <div className="row mb-3 d-flex justify-content-end col-lg-10">
-                <div className="col-lg-5">
-                  <input type="text" className="form-control" placeholder="First Name" style={{ height: '50px', textAlign: 'left'}}/>
-                </div>
-                <div className="col-lg-5">
-                  <input type="text" className="form-control" placeholder="Last Name" style={{ height: '50px', textAlign: 'left'}}/>
-                </div>
+              <div className="mb-3 col-lg-10 position-relative">
+                <input type="text" className="form-control" placeholder="Card number          MM/YY       CVV" style={{ height: '50px', textAlign: 'center' }} />
+                <FontAwesomeIcon icon={faCreditCard} className="position-absolute" style={{ left: '15px', top: '50%', transform: 'translateY(-50%)', color: '#22A6B6' }} />
               </div>
               <div className="row mb-3 d-flex justify-content-end col-lg-10">
-              <div className="col-lg-5 mb-3">
+                <div className="col-lg-5 ">
+                  <input type="text" className="form-control" placeholder="First Name" style={{ height: '50px', textAlign: 'left' }} />
+                </div>
+                <div className="col-lg-5 ">
+                  <input type="text" className="form-control" placeholder="Last Name" style={{ height: '50px', textAlign: 'left' }} />
+                </div>
+              </div>
+              <div className="row mb-3 d-flex justify-content-end col-lg-10">
+                <div className="col-lg-5 mb-3">
                   <Form.Select aria-label="Default select example" className="form-control" style={{ height: '50px', textAlign: 'left' }}>
-                  <option>Country/Region</option>
+                    <option>Country/Region</option>
                     {countries.map((country, index) => (
                       <option key={index}>{country}</option>
                     ))}
@@ -80,7 +86,7 @@ const PaymentGetway = () => {
               </div>
             </div>
             <div className="text-center mt-5">
-              <ButtonOne content='تسجيل'/>
+              <ButtonOne content='تسجيل' />
             </div>
           </form>
         </div>

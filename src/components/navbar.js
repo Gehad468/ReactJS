@@ -10,7 +10,7 @@ const [activeLink, setActiveLink] = useState(null);
         <div className="d-flex justify-content-between align-items-center w-100">
           <div className="d-flex align-items-center">
             <Link className="navbar-brand ml-5" to="/">
-              <img src="images/logo.png" alt="Logo" style={{ width: "183.76px", height: "130px" }} />
+              <img src="../assets/log.jpeg" alt="Logo" style={{ width: "183.76px", height: "130px" }} />
             </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@ const [activeLink, setActiveLink] = useState(null);
                 <Link className={`nav-link text-white ${activeLink === 'home' ? 'active' : ''}`} to="/" onMouseOver={() => setActiveLink('home')} onMouseLeave={() => setActiveLink(null)}>الرئيسية</Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link text-white ${activeLink === 'about' ? 'active' : ''}`} to="/about" onMouseOver={() => setActiveLink('about')} onMouseLeave={() => setActiveLink(null)}>من نحن</Link>
+                <Link className={`nav-link text-white ${activeLink === 'about' ? 'active' : ''}`} to="/about" onMouseOver={() => setActiveLink('about')} onMouseLeave={() => setActiveLink('about')}>من نحن</Link>
               </li>
               <li className="nav-item">
                 <Link className={`nav-link text-white ${activeLink === 'contact' ? 'active' : ''}`} to="/contact" onMouseOver={() => setActiveLink('contact')} onMouseLeave={() => setActiveLink(null)}>تواصل معنا</Link>

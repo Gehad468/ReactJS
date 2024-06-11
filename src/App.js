@@ -1,21 +1,46 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import PaymentGetway from './pages/paymentGetway';
+import Location from './pages/location';
 import TermsAndConditions from './pages/TermsAndCondition';
+import Contact from './pages/contact';
+import Signup from './pages/signup';
 import Terms from './pages/recovery';
+import Home from './pages/home';
 import AboutUs from './pages/about';
+
 function App() {
   return (
-    <div dir="rtl">
-      <Navbar />
-      <TermsAndConditions/>
-      <Terms/>
-      <AboutUs/>
+    <Router>
+      <div   dir="rtl">
 
-      <Footer/>
-    </div>
+        <Navbar />
+        <div className="container">
+          
+          
+          <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          {/* <Route path="/about" element={<AboutUs />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
+          {/* <Route path="/signup" element={<Signup />} /> */}
+          {/* <Route path="/terms" element={<TermsAndConditions />} /> */}
+          {/* <Route path="/recovery" element={<Terms />} /> */}
+          </Routes>
+          {/* <AboutUs /> */}
+          {/* <Contact /> */}
+
+          {/* <Signup /> */}
+          {/* <TermsAndConditions /> */}
+          {/* <Terms /> */}
+          {/* <Location/> */}
+          <PaymentGetway/>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
