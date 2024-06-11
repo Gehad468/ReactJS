@@ -1,7 +1,11 @@
 .App {
   text-align: center;
+
 }
 
+*{
+  font-family:'cairo';
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -28,6 +32,22 @@
   color: #61dafb;
 }
 
+.dashed-list {
+  list-style-type: none; 
+  padding: 0;
+}
+
+.dashed-list li {
+  margin-bottom: 1em;
+}
+
+.dashed-list li:before {
+  content: "- ";
+  left: 0;
+  top: 0;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +56,4 @@
     transform: rotate(360deg);
   }
 }
+
