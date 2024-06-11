@@ -1,14 +1,11 @@
 import React from 'react';
 // import "../Recovery.css"
+import Header from '../components/header';
 
 const Terms = () => {
   return (
     <div className="container my-5">
-      <div className="row">
-        <div className="col-12">
-          <h1 className="text-center mb-4">سياسة إلغاء واسترجاع المبلغ</h1>
-        </div>
-      </div>
+      <Header content='سياسة إلغاء واسترجاع المبلغ'/>
       <div className="row">
         <div className="col-12 mb-4  p-5" style={{backgroundColor: '#FAFAFA' }}>
           <h3>1. الإلغاء والاسترجاع:</h3>
