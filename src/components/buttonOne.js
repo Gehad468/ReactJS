@@ -1,9 +1,12 @@
-function ButtonOne(props){
-return(<>
-<button className="btn px-5 py-4 rounded-pill mb-4 d-block mx-auto" style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white" }}>
-  {props.content}
-</button>
-</>)
+function ButtonOne(props) {
+  return (<span className="m-4">
+
+    <button className="btn px-5 py-3 rounded-pill mb-4  mx-auto " style={{
+      background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white" 
+    }}>
+      {props.content}
+    </button>
+  </span>)
 
 
 }
