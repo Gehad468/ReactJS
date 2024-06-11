@@ -7,7 +7,7 @@ const TermsAndConditions = () => {
     <div className="container my-5">
     <Header content=' سياسة وأحكام التطبيق'/>
     <div className="row " >
-      <div className="col-12 mb-4  p-5 " style={{backgroundColor: '#FAFAFA' }}>
+      <div className="col-12 mb-4  p-5 " style={{backgroundColor: '#FAFAFA' , borderRadius: '20px' }}>
         <p>مرحبًا بك في تطبيق جدولة تسليم الشحنات. يرجى قراءة سياسة وأحكام الاستخدام التالية بعناية قبل استخدام التطبيق.</p>
         <h3>1. الموافقة على الشروط:</h3>
         <p >
