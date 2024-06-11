@@ -46,3 +46,12 @@
 *{
   font-family:'cairo';
 }
+.text-dark-green{
+color:#135D66;
+}
+.text-size-medium{
+  font-size: 2rem;
+}
+.text-size-large{
+  font-size: 3rem;
+}
