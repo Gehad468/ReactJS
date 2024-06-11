@@ -55,3 +55,9 @@ color:#135D66;
 .text-size-large{
   font-size: 3rem;
 }
+.input-style {
+  width: 60px;
+  height: 70px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
