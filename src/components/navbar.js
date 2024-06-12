@@ -1,11 +1,18 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../assets/logo.png';
+import { NavLink } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import logo from "../assets/logo.png";
 
 const CustomNavbar = () => {
   return (
-    <Navbar expand="lg" bg="light" variant="light" style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)" }}>
+    <Navbar
+      expand="lg"
+      bg="light"
+      variant="light"
+      style={{
+        background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)",
+      }}
+    >
       <Container>
         <Navbar.Brand href="/">
           <img src={logo} alt="Logo" style={{ width: "200px", height: "110px", marginLeft: "100px" }} />
