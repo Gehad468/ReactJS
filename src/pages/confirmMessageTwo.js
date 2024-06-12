@@ -25,7 +25,7 @@ function ConfirmTwo() {
                             ]}
                         />
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} className='highCardMid'>
                         <Plan 
                             title="الخطة النصف سنوية" 
                             price="سعر الإشتراك 35 ريال/ 6 شهر"

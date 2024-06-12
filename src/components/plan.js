@@ -1,15 +1,15 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-
+import "../App.css"
 const Plan = ({ title, price, benefits }) => {
     return (
-        <Card className="text-right mb-4 ">
+        <Card className="text-right mb-4  border-0 xx">
             <Card.Body className='cardBig'>
-                <Card.Title className="h1">{title}</Card.Title>
-                <Card.Subtitle className="h2 my-3">{price}</Card.Subtitle>
+                <Card.Title  className=''>{title}</Card.Title>
+                <Card.Subtitle className=" my-3 text-light  smallBox">{price}</Card.Subtitle>
                 <Card.Text>
                     <h3>الفوائد</h3>
-                    <ul >
+                    <ul>
                     {benefits.map((benefit, index) => (
                         <li key={index}>{benefit}</li>
                     ))}

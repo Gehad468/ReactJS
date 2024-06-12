@@ -59,9 +59,10 @@ color:#135D66;
 .cardBig {
   background: #EFEFEF;
   text-align: center;
-  border: none;
-  height: 30rem;
+  min-height: 34rem;
 }
+
+
 
 .card-text  {
   background-color: #135D66;
@@ -70,14 +71,28 @@ color:#135D66;
   text-align: center;
   padding:1.3rem;
   line-height: 1.5;
+  min-height: 18rem;
+  
 }
 
-.low {
-  margin-top:-75px;
-}
+
 .input-style {
   width: 60px;
   height: 70px;
   border-radius: 10px;
   border: 1px solid #22A6B6;
+}
+
+.smallBox{
+  width: auto;
+  min-height: 6rem;
+  border: 1px solid #16575e;
+  background-color: #135D66;
+  padding: 2rem;
+}
+
+
+.low .cardBig {
+  margin-top: 4rem;
+
 }
