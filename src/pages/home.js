@@ -31,10 +31,10 @@ const Home = () => {
 
       <div className="container my-5  px-5">
         <div className="row justify-content-center align-items-center">
-          <div className="col-lg-6">
+          <div className="col-lg-5 my-3">
             <img src={phone} className="img-fluid" alt="phone" />
           </div>
-          <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center">
+          <div className="col-lg-5 d-flex flex-column justify-content-center align-items-center my-3">
             <p className="text-center text-gradient text-size-medium">
             عزيزي المندوب الآن بكل سهولة يمكنك تنظيم رحلاتك واختصار المزيد من الوقت
             </p>
@@ -49,7 +49,7 @@ const Home = () => {
       <div className="mb-5 my-5" style={{ background: "#135D66" }}>
         <div className="container  px-5">
           <div className="row justify-content-center align-items-center">
-            <div className="col-lg-6 text-white">
+            <div className="col-lg-5 text-white my-3">
             <p className="text-center text-size-medium">
   <span className="d-block">
     نحن نفخر بتقديم خدمة تسليم شحنات بنسبة 100٪ في الوقت المحدد
@@ -59,12 +59,12 @@ const Home = () => {
 </p>
 
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-5 my-3">
               <img
                 src={logo}
                 className="img-fluid"
                 alt="logo"
-                style={{ width: "799px", height: "548px" }}
+                style={{ width: "661px", height: "410px" }}
               />
             </div>
           </div>
