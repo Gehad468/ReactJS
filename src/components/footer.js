@@ -12,7 +12,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
   return (
     <footer  className="footer  mt-5">
-      <div className="container">
+      <div className="container  px-5">
         <div className="row">
          <div className="col-lg-6 col-md-12 mb-4 d-flex flex-column flex-sm-row align-items-center">
           <img src={logo} width={178} alt="logo" className="mb-3 mb-sm-0 mr-sm-3" />
