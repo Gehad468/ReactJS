@@ -1,50 +1,34 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import ConfirmTwo from './pages/confirmMessageTwo';
-import PaymentGetway from './pages/paymentGetway';
-import Location from './pages/location';
 import TermsAndConditions from './pages/TermsAndCondition';
-import SuccessfullyRegistered from './pages/successfullyRegistered';
+import Terms from './pages/recovery';
+import AboutUs from './pages/about';
 import Contact from './pages/contact';
 import Signup from './pages/signup';
 import Terms from './pages/recovery';
 import Home from './pages/home';
-import AboutUs from './pages/about';
+import NotFound from './pages/notFound';
 
 function App() {
   return (
-    <Router>
-      <div   dir="rtl">
-
+    <div dir="rtl">
+     <BrowserRouter>
         <Navbar />
-        <div className="container">
-          
-          
-          <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          {/* <Route path="/about" element={<AboutUs />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          {/* <Route path="/signup" element={<Signup />} /> */}
-          {/* <Route path="/terms" element={<TermsAndConditions />} /> */}
-          {/* <Route path="/recovery" element={<Terms />} /> */}
-          </Routes>
-          {/* <AboutUs /> */}
-          {/* <Contact /> */}
-
-          {/* <Signup /> */}
-          {/* <TermsAndConditions /> */}
-          {/* <Terms /> */}
-          <Location/>
-          {/* <PaymentGetway/> */}
-          {/* <SuccessfullyRegistered/> */}
-          {/* <ConfirmTwo/> */}
-        </div>
+        <Switch>
+          <Route component={Home} path="/" exact />
+          <Route component={AboutUs} path="/about" exact />
+          <Route component={Contact} path="/contact" exact />
+          <Route component={Signup} path="/signup" exact />
+          <Route component={Terms} path="/recovery" exact />
+          <Route component={TermsAndConditions} path="/terms"/> 
+          <Route component={NotFound} path="*" />
+        </Switch> 
         <Footer />
-      </div>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
 }
 
