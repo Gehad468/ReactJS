@@ -72,7 +72,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container my-5">
+      <div className="container my-5 text-center">
       <ButtonOne content='متجر وصول'/>
         <p className="text-center mt-5 mb-5 text-gradient text-size-medium">
           من خلال المتجر يمكنك الحصول على صندوق استلام الطرود لاستلام شحناتك بكل
