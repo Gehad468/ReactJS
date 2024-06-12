@@ -1,0 +1,222 @@
+/* Define your CSS styles based on the SCSS from Vue */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: 16px;
+  }
+  
+  #error-app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .error-container {
+    background-image: linear-gradient(to bottom right, #6200c4, #ed6f00);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: none;
+  }
+  
+  .error-code {
+    color: #ffffff;
+    font-family: "Fredoka One", cursive;
+    font-size: 24vmin;
+    text-align: center;
+    text-shadow: 1.6vmin 1.6vmin rgba(48, 48, 48, 0.5);
+    user-select: none;
+    padding: 1.5vmin 5vmin;
+    display: flex;
+  }
+  
+  .error-code span {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .error-title {
+    color: #ffffff;
+    font-family: "Fredoka One", cursive;
+    font-size: 2.8rem;
+    text-align: center;
+    text-shadow: 0.18rem 0.18rem rgba(48, 48, 48, 0.5);
+    user-select: none;
+    padding: 1.5vmin 10vmin;
+  }
+  
+  .error-message {
+    color: #ffffff;
+    font-family: "Fredoka One", cursive;
+    font-size: 1.2rem;
+    text-align: center;
+    text-shadow: 0.08rem 0.08rem rgba(48, 48, 48, 0.5);
+    user-select: none;
+    padding: 1.5vmin 30vmin;
+  }
+  
+  .search-icon {
+    background-color: rgba(105, 205, 255, 0.5);
+    width: 2.8rem;
+    height: 2.8rem;
+    border: solid 0.32rem #fffb8c;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(-38deg);
+    box-shadow: -0.32rem 0.32rem 0.64rem rgba(31, 31, 31, 0.8);
+    pointer-events: none;
+    transition: top 32ms cubic-bezier(0.22, 0.61, 0.36, 1), left 32ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  .search-icon::after {
+    content: '';
+    background-color: #30b3ff;
+    width: 0.45rem;
+    height: 1.4rem;
+    position: absolute;
+    bottom: -1.72rem;
+    left: calc(50% - 0.22rem);
+    border-radius: 0.22rem;
+  }
+  
+  .search-icon::after {
+    box-shadow: -0.32rem 0.32rem 0.64rem rgba(31, 31, 31, 0.8);
+  }
+  
+  .search-window {
+    font-family: "Open Sans", sans-serif;
+    width: 75vmin;
+    height: 75vmin;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.98);
+    animation: expand 600ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+  
+  @keyframes expand {
+    0% {
+      transform: scale(0.001) translate(-50%, -50%);
+    }
+    100% {
+      transform: scale(1) translate(-50%, -50%);
+    }
+  }
+  
+  .search-window-search {
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    border-bottom: solid 0.15rem #303030;
+    box-shadow: 0.32rem 0.32rem 0.64rem rgba(31, 31, 31, 0.4);
+    z-index: 10;
+    position: relative;
+  }
+  
+  .search-scrolling {
+    box-shadow: 0 0.32rem 0.64rem rgba(31, 31, 31, 0.8);
+  }
+  
+  .search-window-search input {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    color: #606060;
+    padding: 1rem 1.5rem;
+    flex: auto;
+    border: none;
+  }
+  
+  .search-window-search input:focus {
+    outline: none;
+  }
+  
+  .search-window-search button {
+    flex: none;
+    padding: 0.32rem 0.32rem;
+    border: none;
+    margin: 0.32rem 0.32rem 0.32rem 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .search-window-search button:focus {
+    outline: none;
+  }
+  
+  .search-window-search button span {
+    display: block;
+    position: relative;
+    width: 1.4rem;
+    height: 1.4rem;
+    transform: rotate(45deg);
+  }
+  
+  .search-window-search button span span {
+    display: block;
+    background-color: #ff3131;
+    position: absolute;
+  }
+  
+  .search-window-search button span span:first-of-type {
+    width: 100%;
+    height: 0.28rem;
+    top: calc(50% - 0.14rem);
+    left: 0;
+  }
+  
+  .search-window-search button span span:last-of-type {
+    height: 100%;
+    width: 0.28rem;
+    top: 0;
+    left: calc(50% - 0.14rem);
+  }
+  
+  .search-window-section {
+    flex: auto;
+    overflow-y: auto;
+    padding: 1rem 1.5rem;
+    transition: box-shadow 320ms ease-out;
+  }
+  
+  .search-window-container {
+    border-bottom: solid 0.1rem #a0a0a0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .search-window-container:last-of-type {
+    border-bottom: none;
+  }
+  
+  .search-window-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .search-window-title a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .search-window-title a:hover {
+    text-decoration: underline;
+  }
+  
+  .search-window-content {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #606060;
+  }
+  

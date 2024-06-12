@@ -3,6 +3,9 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ButtonOne from '../components/buttonOne';
+import Gome1 from "../assets/home.png";
+import phone from "../assets/home2.jpeg";
+import logo from "../assets/logo.png";
 const Home = () => {
   return (
     <>
@@ -17,7 +20,9 @@ const Home = () => {
             </p>
           </div>
           <div className="col-lg-6">
-            <img src="images/home1.jpeg" className="img-fluid" alt="Image" />
+            <img src={Gome1} className="img-fluid" alt="Image" />
+            {/* <img src={phone} className="img-fluid" alt="phone"  /> */}
+
           </div>
         </div>
       </div>
@@ -26,7 +31,7 @@ const Home = () => {
       <div className="container my-5">
         <div className="row justify-content-center align-items-center">
           <div className="col-lg-6">
-            <img src="images/home2.jpeg" className="img-fluid" alt="Image" />
+            <img src={phone} className="img-fluid" alt="Image" />
           </div>
           <div className="col-lg-6 d-flex flex-column justify-content-center align-items-center">
             <p className="text-center text-gradient text-size-medium">
@@ -55,7 +60,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6">
               <img
-                src="images/logo.png"
+                src={logo}
                 className="img-fluid"
                 alt="Image"
                 style={{ width: "799px", height: "548px" }}
