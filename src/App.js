@@ -37,10 +37,10 @@ function App() {
           {/* <Signup /> */}
           {/* <TermsAndConditions /> */}
           {/* <Terms /> */}
-          {/* <Location/> */}
+          <Location/>
           {/* <PaymentGetway/> */}
           {/* <SuccessfullyRegistered/> */}
-          <ConfirmTwo/>
+          {/* <ConfirmTwo/> */}
         </div>
         <Footer />
       </div>

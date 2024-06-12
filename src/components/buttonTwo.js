@@ -1,6 +1,6 @@
 function ButtonTwo(props){
     return(<>
-    <button className="btn px-5 py-3 mb-4 d-block mx-auto" style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white"}}>
+    <button className="btn px-5 py-2 mb-4 d-block mx-auto" style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white"}}>
       {props.content}
     </button>
     </>)
