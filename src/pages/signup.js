@@ -25,7 +25,7 @@ const Signup = () => {
                 <div className="col-lg-8 mb-4 p-4">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 row align-items-center">
-                            <label htmlFor="name" className="col-sm-2 text-gradient">الاسم</label>
+                            <label htmlFor="name" className="col-sm-2 text-gradient text-size-small">الاسم</label>
                             <div className="col-sm-8">
                                 <input
                                     type="text"
@@ -34,12 +34,12 @@ const Signup = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)' }}
+                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
                             </div>
                         </div>
                         <div className="mb-3 row align-items-center">
-                            <label htmlFor="phoneNumber" className="col-sm-2 text-gradient">رقم الجوال</label>
+                            <label htmlFor="phoneNumber" className="col-sm-2 text-gradient text-size-small">رقم الجوال</label>
                             <div className="col-sm-8">
                                 <input
                                     type="text"
@@ -48,12 +48,12 @@ const Signup = () => {
                                     name="phoneNumber"
                                     value={formData.phoneNumber}
                                     onChange={handleChange}
-                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)' }}
+                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
                             </div>
                         </div>
                         <div className="mb-3 row align-items-center">
-                            <label htmlFor="nationalID" className="col-sm-2 text-gradient">رقم الهوية</label>
+                            <label htmlFor="nationalID" className="col-sm-2 text-gradient text-size-small">رقم الهوية</label>
                             <div className="col-sm-8">
                                 <input
                                     type="text"
@@ -62,7 +62,7 @@ const Signup = () => {
                                     name="nationalID"
                                     value={formData.nationalID}
                                     onChange={handleChange}
-                                    style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)'}}
+                                    style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem'}}
                                 />
                             </div>
                         </div>
