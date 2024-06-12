@@ -12,26 +12,26 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
   return (
     <footer  className="footer  mt-5">
-      <div className="container  px-5">
+      <div className="container ">
         <div className="row">
          <div className="col-lg-6 col-md-12 mb-4 d-flex flex-column flex-sm-row align-items-center">
           <img src={logo} width={178} alt="logo" className="mb-3 mb-sm-0 mr-sm-3" />
-          <p className="mb-0">هو نظام إدارة ومتابعة مناديب البيع والتوزيع مناسب لجميع الأنشطة التجارية التى تعمل بمجال التوزيع</p>
+          <h6 className="mb-0">هو نظام إدارة ومتابعة مناديب البيع والتوزيع مناسب لجميع الأنشطة التجارية التى تعمل بمجال التوزيع</h6>
         </div>
           <div className="col-lg-3 col-md-6 mb-4">
-            <h3>المساعدة</h3>
-            <p>من نحن</p>
-            <p>سياسة وأحكام التطبيق</p>
-            <p>سياسة الإلغاء واسترجاع المبلغ</p>
+            <h4>المساعدة</h4>
+            <h6>من نحن</h6>
+            <h6>سياسة وأحكام التطبيق</h6>
+            <h6>سياسة الإلغاء واسترجاع المبلغ</h6>
           </div>
           <div className="col-lg-3 col-md-6 mb-4">
-            <h3>تواصل معنا</h3>
-            <p><FontAwesomeIcon icon={faEnvelope} /> support@wsoul.io</p>
-            <p><FontAwesomeIcon icon={faPhone} /> 87856</p>
+            <h4>تواصل معنا</h4>
+            <h6><FontAwesomeIcon icon={faEnvelope} /> support@wsoul.io</h6>
+            <h6><FontAwesomeIcon icon={faPhone} /> 87856</h6>
           </div>
         </div>
         <div className="footer-bottom py-3">
-          <div className="container">
+          <div className="container px-5">
             <div className="row">
               <div className="col-lg-9 col-md-12   mb-2 mb-lg-0">
                 <p>جميع الحقوق محفوظة لموقع وصول 2024</p>

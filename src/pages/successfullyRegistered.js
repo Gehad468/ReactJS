@@ -11,11 +11,11 @@ const SuccessfullyRegistered = () => {
         <div className="row">
             <div className="col-md mx-auto text-center ">
               <img src={blueShape} height={220} width={240} alt='blueShape'/>
-              <h1 className="mt-3 text-dark-green" >تم تسجيلك بنجاح 
+              <h3 className="mt-3 text-dark-green" >تم تسجيلك بنجاح 
 يرجى تنزيل التطبيق المرسل على الواتس اب
-أو من خلال</h1>
-<img src={appleStore} className='m-2' width={295} height={150} alt='Apple Store'/>
-<img src={googleStore} className='m-2' width={295} height={150} alt='Google Store'/>
+أو من خلال</h3>
+<img src={appleStore} className='m-2' width={255} height={110} alt='Apple Store'/>
+<img src={googleStore} className='m-2' width={255} height={110} alt='Google Store'/>
 
             </div>
         </div>

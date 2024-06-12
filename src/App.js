@@ -20,7 +20,7 @@ function App() {
     <div dir="rtl">
       <Router>
         <Navbar />
-        <div className="container p-33px" style={{ flex: 1 }}>
+        <div className=" p-33px" style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/about" element={<AboutUs />} exact/>

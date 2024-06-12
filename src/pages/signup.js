@@ -34,7 +34,7 @@ const Signup = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    style={{ backgroundColor: '#BDBDBD', opacity: '25%' }}
+                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)' }}
                                 />
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const Signup = () => {
                                     name="phoneNumber"
                                     value={formData.phoneNumber}
                                     onChange={handleChange}
-                                    style={{ backgroundColor: '#BDBDBD', opacity: '25%' }}
+                                    style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)' }}
                                 />
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const Signup = () => {
                                     name="nationalID"
                                     value={formData.nationalID}
                                     onChange={handleChange}
-                                    style={{ backgroundColor: '#BDBDBD', opacity: '25%' }}
+                                    style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)'}}
                                 />
                             </div>
                         </div>

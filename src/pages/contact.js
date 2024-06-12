@@ -32,7 +32,7 @@ const Contact = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                style={{ height: '50px', borderRadius: '20px' }}
+                style={{ height: '50px', borderRadius: '20px' ,fontSize:'1.1rem'}}
               />
             </div>
             <div className="col">
@@ -43,7 +43,7 @@ const Contact = () => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
-                style={{ height: '50px', borderRadius: '20px' }}
+                style={{ height: '50px', borderRadius: '20px',fontSize:'1.1rem' }}
               />
             </div>
           </div>
@@ -56,7 +56,7 @@ const Contact = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
-                style={{ height: '50px', borderRadius: '20px' }}
+                style={{ height: '50px', borderRadius: '20px' ,fontSize:'1.1rem'}}
               />
             </div>
           </div>
@@ -69,7 +69,7 @@ const Contact = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
-                style={{ height: '200px', borderRadius: '20px' }}
+                style={{ height: '200px', borderRadius: '20px',fontSize:'1.1rem' }}
               ></textarea>
             </div>
           </div>
