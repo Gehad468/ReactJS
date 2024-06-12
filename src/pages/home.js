@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
     <div className="my-5">
-      <div className="container mb-5 my-5">
+      <div className="container mb-5 my-5  px-5">
         <div className="row">
           <div className="col-lg-6">
             <h2 className="text-dark-green mb-5 text-size-large">تطبيق وصول</h2>
@@ -30,7 +30,7 @@ const Home = () => {
       </div>
       <hr className="col-6 mx-auto" />
 
-      <div className="container my-5">
+      <div className="container my-5  px-5">
         <div className="row justify-content-center align-items-center">
           <div className="col-lg-6">
             <img src={phone} className="img-fluid" alt="Image" />
@@ -48,7 +48,7 @@ const Home = () => {
       </div>
 
       <div className="mb-5 my-5" style={{ background: "#135D66" }}>
-        <div className="container">
+        <div className="container  px-5">
           <div className="row justify-content-center align-items-center">
             <div className="col-lg-6 text-white">
             <p className="text-center text-size-medium">
@@ -72,7 +72,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container my-5 text-center">
+      <div className="container my-5 text-center  px-5">
       <ButtonOne content='متجر وصول'/>
         <p className="text-center mt-5 mb-5 text-gradient text-size-medium">
           من خلال المتجر يمكنك الحصول على صندوق استلام الطرود لاستلام شحناتك بكل
