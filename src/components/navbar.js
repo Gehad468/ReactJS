@@ -20,10 +20,38 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="h3 ms-auto p-3 "  style={{ justifyContent: "space-between", width: "100%" }}>
-            <Nav.Link as={NavLink} to="/" activeClassName="active" exact style={{ color: "white" }}>الرئيسية</Nav.Link>
-            <Nav.Link as={NavLink} to="/about" activeClassName="active" style={{ color: "white" }}>من نحن</Nav.Link>
-            <Nav.Link as={NavLink} to="/contact" activeClassName="active" style={{ color: "white" }}>تواصل معنا</Nav.Link>
-            <Nav.Link as={NavLink} to="/signup" activeClassName="active" style={{ color: "white" }}>إنشاء حساب</Nav.Link>
+          <Nav.Link
+              as={NavLink}
+              to="/"
+              activeclassname="active"
+              style={{ color: "white" }}
+            >
+              الرئيسية
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/about"
+              activeclassname="active"
+              style={{ color: "white" }}
+            >
+              من نحن
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/contact"
+              activeclassname="active"
+              style={{ color: "white" }}
+            >
+              تواصل معنا
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/signup"
+              activeclassname="active"
+              style={{ color: "white" }}
+            >
+              إنشاء حساب
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
