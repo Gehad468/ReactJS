@@ -19,16 +19,16 @@ const Navbar = () => {
           <div className="collapse navbar-collapse mx-5" id="navbarSupportedContent">
             <ul className="navbar-nav justify-content-between align-items-center w-100">
               <li className="nav-item">
-                <Link className={`nav-link text-white ${activeLink === 'home' ? 'active' : ''}`} to="/" onMouseOver={() => setActiveLink('home')} onMouseLeave={() => setActiveLink(null)}>الرئيسية</Link>
+                <Link className="nav-link text-white" activeClassName="active" exact to="/">الرئيسية</Link>
               </li>
               <li className="nav-item">
                 <Link className={`nav-link text-white ${activeLink === 'about' ? 'active' : ''}`} to="/about" onMouseOver={() => setActiveLink('about')} onMouseLeave={() => setActiveLink(null)}>من نحن</Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link text-white ${activeLink === 'contact' ? 'active' : ''}`} to="/contact" onMouseOver={() => setActiveLink('contact')} onMouseLeave={() => setActiveLink(null)}>تواصل معنا</Link>
+                <Link className="nav-link text-white" activeClassName="active" to="/contact">تواصل معنا</Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link text-white ${activeLink === 'signup' ? 'active' : ''}`} to="/signup" onMouseOver={() => setActiveLink('signup')} onMouseLeave={() => setActiveLink(null)}>إنشاء حساب</Link>
+                <Link className="nav-link text-white" activeClassName="active" to="/signup">إنشاء حساب</Link>
               </li>
             </ul>
           </div>
