@@ -2,6 +2,8 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTelegram } from '@fortawesome/free-brands-svg-icons';
 import ButtonOne from '../components/buttonOne';
 import Gome1 from "../assets/home.png";
 import phone from "../assets/home2.jpeg";
@@ -78,9 +80,9 @@ const Home = () => {
           السعودية و نتطلع ان تكون الصناديق الخاصة بوصول موجودة في جميع المنازل
           داخل السعودية.
         </p>
-        <h2 className="text-center text-6xl font-weight-bold mb-5 mt-5 text-dark-green text-size-large">
-          انضم الينا عن طريق تليجرام 
-        </h2>
+         <h2 className="text-center text-6xl font-weight-bold mb-5 mt-5 text-dark-green text-size-large">
+   انضم الينا عن طريق تليجرام <FontAwesomeIcon icon={faTelegram} />
+</h2>
         <h2 className="text-center text-6xl font-weight-bold mb-5 mt-5 text-gradient text-size-large">
           خدماتنا المميزة
         </h2>
