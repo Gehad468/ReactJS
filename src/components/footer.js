@@ -7,6 +7,7 @@ import mastercard from "../assets/mastercard.jpeg"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -20,9 +21,9 @@ const Footer = () => {
         </div>
           <div className="col-lg-3 col-md-6 mb-4">
             <h4>المساعدة</h4>
-            <h6>من نحن</h6>
-            <h6>سياسة وأحكام التطبيق</h6>
-            <h6>سياسة الإلغاء واسترجاع المبلغ</h6>
+            <h6><Link to="/about" className='white-link' > من نحن  </Link></h6>
+            <h6 > <Link to="/terms" className='white-link' >   سياسة وأحكام التطبيق </Link></h6>
+            <h6> <Link to="/recovery" className='white-link'>سياسة الإلغاء واسترجاع المبلغ  </Link> </h6>
           </div>
           <div className="col-lg-3 col-md-6 mb-4">
             <h4>تواصل معنا</h4>

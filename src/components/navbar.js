@@ -15,7 +15,7 @@ const CustomNavbar = () => {
     >
       <Container>
         <Navbar.Brand href="/">
-          <img src={logo} alt="Logo" style={{ width: "200px", height: "110px", marginLeft: "100px" }} />
+          <img src={logo} alt="Logo" style={{ width: "150px", height: "110px", marginLeft: "100px" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
