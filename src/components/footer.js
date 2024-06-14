@@ -11,6 +11,15 @@ import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = "mailto:support@wsoul.io";
+  };
+
+  const handlePhoneClick = (e) => {
+    e.preventDefault();
+    window.location.href = "tel:87856";
+  };
   return (
     <footer  className="footer  mt-5">
       <div className="container ">
@@ -26,9 +35,26 @@ const Footer = () => {
             <h6> <Link to="/recovery" className='white-link'>سياسة الإلغاء واسترجاع المبلغ  </Link> </h6>
           </div>
           <div className="col-lg-3 col-md-6 mb-4">
-            <h4>تواصل معنا</h4>
-            <h6><FontAwesomeIcon icon={faEnvelope} /> support@wsoul.io</h6>
-            <h6><FontAwesomeIcon icon={faPhone} /> 87856</h6>
+          <h6>
+        <FontAwesomeIcon icon={faEnvelope} /> 
+        <Link 
+          to="#" 
+          onClick={handleEmailClick} 
+          style={{ color: 'inherit',textDecoration:'none'}}>
+           &nbsp;&nbsp;support@wsoul.io
+        </Link>
+      </h6>
+      <h6>
+        <FontAwesomeIcon icon={faPhone} />
+
+        <Link 
+          to="#" 
+          onClick={handlePhoneClick} 
+          style={{ color: 'inherit' ,textDecoration:'none'}}
+        >&nbsp;&nbsp;87856
+        </Link>
+      </h6>
+    
           </div>
         </div>
         <div className="footer-bottom py-3">
