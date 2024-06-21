@@ -133,7 +133,7 @@ const Location = () => {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container my-5" style={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.4)', padding: '20px' }}>
       <Header content='يرجي إدخال موقعك ليتم تحديد موعد الزيارة التقريبي' />
       <div className="row justify-content-center" style={{ backgroundColor: '#FAFAFA', borderRadius: '20px' }}>
         <div className="col-lg-8 mb-4 p-4">
@@ -149,7 +149,7 @@ const Location = () => {
                   <button
                     type="button"
                     className="form-control form-control-sm pr-5"
-                    style={{ height: '50px', borderRadius: '20px' ,textAlign: 'right'}}
+                    style={{ height: '50px', borderRadius: '20px', textAlign: 'right', padding: '10px' , boxShadow: '0 10px 10px rgba(0, 0, 0, 0.2)'}}
                     onClick={handleLocationAccess}
                   >
                     يرجى النقر للوصول إلى الموقع
@@ -168,7 +168,7 @@ const Location = () => {
                   <button
                     type="button"
                     className="form-control form-control-sm pr-5"
-                    style={{ height: '50px', borderRadius: '20px' ,textAlign: 'right'}}
+                    style={{ height: '50px', borderRadius: '20px', textAlign: 'right', padding: '10px', boxShadow: '0 10px 10px rgba(0, 0, 0, 0.2)' }}
                     onClick={handleCameraAccess}
                   >
                     يرجى النقر للوصول إلى الكاميرا
@@ -176,31 +176,34 @@ const Location = () => {
                 </div>
               </div>
             </div>
-            <div className="text-center mt-5">
-              <ButtonOne content='إعادة جدولة' />
-              <ButtonOne content='إلغاء' />
+            <div className="text-center mt-5 ">
+              <ButtonTwo content='ارسال' />
             </div>
             <div className="row mb-3">
               <div className="col">
                 <textarea
-                  className="form-control form-control-sm"
+                  className="form-control form-control-sm p-3"
                   rows="5"
                   placeholder="السبب"
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   required
-                  style={{ height: '200px', borderRadius: '20px' }}
+                  style={{ height: '200px', borderRadius: '20px', padding: '10px', boxShadow: '0 10px 10px rgba(0, 0, 0, 0.2)' }}
                 ></textarea>
               </div>
             </div>
+  
             <div className="text-center mt-5">
-              <ButtonTwo content='ارسال' />
+              <ButtonOne content='إعادة جدولة' />
+              <ButtonOne content='إلغاء' />
             </div>
+           
           </form>
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default Location;
