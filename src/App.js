@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ConfirmTwo from './pages/confirmMessageTwo';
+import OTP from './pages/confirmMessageOne';
 import PaymentGetway from './pages/paymentGetway';
 import Location from './pages/location';
 import TermsAndConditions from './pages/TermsAndCondition';
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/about" element={<AboutUs />} exact/>
+            <Route path="/otp" element={< OTP/>} exact/>
             <Route path="/contact" element={<Contact />}exact />
             <Route path="/signup" element={<Signup />} exact/>
             <Route path="/terms" element={<TermsAndConditions />} exact/>
