@@ -5,8 +5,8 @@ import ButtonOne from "../components/buttonOne";
 const ConfirmMessageOne = () => {
   const [otp, setOtp] = useState('');
   const [countdown, setCountdown] = useState({ minutes: 1, seconds: 0 });
-  // const location = useLocation(); 
-  // const phoneNumber = location.state.phoneNumber; 
+  const location = useLocation(); 
+  const phoneNumber = location.state.phoneNumber; 
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,7 +30,7 @@ const ConfirmMessageOne = () => {
     
     const formData = {
       otp,
-      // phoneNumber,
+      phoneNumber,
     };
 
     try {
