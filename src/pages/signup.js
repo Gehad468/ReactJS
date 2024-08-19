@@ -6,7 +6,7 @@ import ButtonOne from '../components/buttonOne';
 const Signup = () => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [nationalID, setNationalID] = useState('');
+    const [nationalId, setNationalId] = useState('');
     const isAdmin = true;
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Signup = () => {
         const formData = {
             name,
             phoneNumber,
-            nationalID,
+            nationalId,
             isAdmin,
         };
         
@@ -85,8 +85,8 @@ const Signup = () => {
                                     className="form-control"
                                     id="nationalID"
                                     name="nationalID"
-                                    value={nationalID}
-                                    onChange={(e) => setNationalID(e.target.value)}
+                                    value={nationalId}
+                                    onChange={(e) => setNationalId(e.target.value)}
                                     style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem'}}
                                 />
                             </div>
