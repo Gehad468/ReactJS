@@ -3,18 +3,41 @@ import Header from '../components/header';
 import ButtonTwo from '../components/buttonTwo';
 
 const Contact = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [f_name, setFirstName] = useState('');
+  const [l_name, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [msg, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted!');
-    setFirstName('');
-    setLastName('');
-    setPhone('');
-    setMessage('');
+    
+    const formData = {
+      f_name,
+      l_name,
+      phone,
+      msg,
+    };
+    
+    try {
+      const response = await fetch('http://localhost:3000/p/contact-us', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        withCredentials: true
+      });
+    
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Response error:', errorData);
+      } else {
+        const data = await response.json();
+        console.log('Success:', data);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -29,7 +52,7 @@ const Contact = () => {
                 type="text"
                 className="form-control form-control-sm"
                 placeholder="الاسم الأول"
-                value={firstName}
+                value={f_name}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
                 style={{ height: '50px', borderRadius: '20px' ,fontSize:'1.1rem'}}
@@ -40,7 +63,7 @@ const Contact = () => {
                 type="text"
                 className="form-control form-control-sm"
                 placeholder="الاسم الأخير"
-                value={lastName}
+                value={l_name}
                 onChange={(e) => setLastName(e.target.value)}
                 required
                 style={{ height: '50px', borderRadius: '20px',fontSize:'1.1rem' }}
@@ -66,7 +89,7 @@ const Contact = () => {
                 className="form-control form-control-sm"
                 rows="5"
                 placeholder="الرسالة"
-                value={message}
+                value={msg}
                 onChange={(e) => setMessage(e.target.value)}
                 required
                 style={{ height: '200px', borderRadius: '20px',fontSize:'1.1rem' }}
