@@ -3,19 +3,42 @@ import Header from '../components/header';
 import ButtonOne from '../components/buttonOne';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({
-      name: '',
-      phoneNumber: '',
-      nationalID: ''
-    });
+    const [name, setName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [nationalID, setNationalID] = useState('');
+
+    const isAdmin = true;
   
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({ ...formData, [name]: value });
-    };
-  
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
+      
+      const formData = {
+        name,
+        phoneNumber,
+        nationalID,
+        isAdmin,
+      };
+      
+      try {
+        const response = await fetch('http://localhost:3000/v1/api/auth/sendOTP', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+          withCredentials: true
+        });
+      
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Response error:', errorData);
+        } else {
+          const data = await response.json();
+          console.log('Success:', data);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     };
 
     return (
@@ -32,8 +55,8 @@ const Signup = () => {
                                     className="form-control"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                     style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
                             </div>
@@ -46,8 +69,8 @@ const Signup = () => {
                                     className="form-control"
                                     id="phoneNumber"
                                     name="phoneNumber"
-                                    value={formData.phoneNumber}
-                                    onChange={handleChange}
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
                                     style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
                             </div>
@@ -60,12 +83,17 @@ const Signup = () => {
                                     className="form-control"
                                     id="nationalID"
                                     name="nationalID"
-                                    value={formData.nationalID}
-                                    onChange={handleChange}
+                                    value={nationalID}
+                                    onChange={(e) => setNationalID(e.target.value)}
                                     style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem'}}
                                 />
                             </div>
                         </div>
+                        <input 
+                            type="hidden" 
+                            name="isAdmin" 
+                            value={isAdmin} 
+                        />
                         <div className="text-center mt-5">
                             <ButtonOne content='اضغط للتحقق من رقم الجوال'/>
                         </div>
