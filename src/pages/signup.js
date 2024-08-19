@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import ButtonOne from '../components/buttonOne';
 
@@ -6,39 +7,40 @@ const Signup = () => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [nationalID, setNationalID] = useState('');
-
     const isAdmin = true;
-  
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
-      e.preventDefault();
-      
-      const formData = {
-        name,
-        phoneNumber,
-        nationalID,
-        isAdmin,
-      };
-      
-      try {
-        const response = await fetch('http://localhost:3000/v1/api/auth/sendOTP', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-          withCredentials: true
-        });
-      
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error('Response error:', errorData);
-        } else {
-          const data = await response.json();
-          console.log('Success:', data);
+        e.preventDefault();
+        
+        const formData = {
+            name,
+            phoneNumber,
+            nationalID,
+            isAdmin,
+        };
+        
+        try {
+            const response = await fetch('http://localhost:3000/v1/api/auth/sendOTP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+                withCredentials: true
+            });
+        
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Response error:', errorData);
+            } else {
+                const data = await response.json();
+                console.log('Success:', data);
+                navigate('/otp', { state: { phoneNumber } });
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
-      } catch (error) {
-        console.error('Error:', error);
-      }
     };
 
     return (
