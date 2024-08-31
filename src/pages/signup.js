@@ -21,7 +21,7 @@ const Signup = () => {
         };
         
         try {
-            const response = await fetch('http://localhost:3000/v1/api/auth/sendOTP', {
+            const response = await fetch('http://localhost:3000/auth/sendOTP', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
