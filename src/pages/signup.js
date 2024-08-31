@@ -36,7 +36,9 @@ const Signup = () => {
             } else {
                 const data = await response.json();
                 console.log('Success:', data);
-                navigate('/otp', { state: { phoneNumber } });
+                // navigate('/otp', { state: { phoneNumber } });
+                navigate('/otp', { state: { name, phoneNumber, nationalId , isAdmin} });
+
             }
         } catch (error) {
             console.error('Error:', error);
