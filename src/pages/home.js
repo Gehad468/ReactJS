@@ -41,7 +41,7 @@ const Home = () => {
             <p className="text-center mb-5  text-gradient text-size-medium">
               سجل الآن واحصل على تطبيق وصول
             </p>
-            <ButtonOne content='سجل الان'/>
+              <ButtonOne content='سجل الان' href='/signup' />
           </div>
         </div>
       </div>
