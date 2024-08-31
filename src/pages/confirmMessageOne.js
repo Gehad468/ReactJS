@@ -6,7 +6,8 @@ const ConfirmMessageOne = () => {
   const [otp, setOtp] = useState('');
   const [countdown, setCountdown] = useState({ minutes: 1, seconds: 0 });
   const location = useLocation(); 
-  const phoneNumber = location.state.phoneNumber; 
+  // const phoneNumber = location.state.phoneNumber; 
+  const { name, phoneNumber, nationalId , isAdmin} = location.state;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,11 +31,13 @@ const ConfirmMessageOne = () => {
     
     const formData = {
       otp,
-      phoneNumber,
+      phone: phoneNumber, 
     };
-
+  
+    console.log('Data to be sent:', formData);
+  
     try {
-      const response = await fetch('http://localhost:3000/v1/api/auth/verify', {
+      const response = await fetch('http://localhost:3000/auth/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,27 +45,34 @@ const ConfirmMessageOne = () => {
         body: JSON.stringify(formData),
         withCredentials: true
       });
-    
+  
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Response error:', errorData);
+        console.error(`HTTP error! Status: ${response.status}`);
+        try {
+          const errorData = await response.json();
+          console.error('Response error:', errorData);
+        } catch (jsonError) {
+          console.error('Error parsing JSON response:', jsonError);
+        }
       } else {
         const data = await response.json();
         console.log('Success:', data);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Network Error:', error);
     }
   };
-
+  
+  
+  
   const resendOTP = async () => {
     try {
-      const response = await fetch('http://localhost:3000/v1/api/auth/resendOTP', {
+      const response = await fetch('http://localhost:3000/auth/sendOTP', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        // body: JSON.stringify({ phoneNumber }),
+        body: JSON.stringify({ name, phoneNumber, nationalId , isAdmin}), 
         withCredentials: true
       });
       
