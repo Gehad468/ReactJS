@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom'; 
+import { useLocation,useNavigate } from 'react-router-dom'; 
 import ButtonOne from "../components/buttonOne";
+
 
 const ConfirmMessageOne = () => {
   const [otp, setOtp] = useState('');
-  const [countdown, setCountdown] = useState({ minutes: 1, seconds: 0 });
+  const [countdown, setCountdown] = useState({ minutes: 5, seconds: 0 });
   const location = useLocation(); 
-  // const phoneNumber = location.state.phoneNumber; 
+  const navigate = useNavigate();
+  // const phoneNumber = location.state.phoneNumber;
   const { name, phoneNumber, nationalId , isAdmin} = location.state;
 
   useEffect(() => {
@@ -57,6 +59,7 @@ const ConfirmMessageOne = () => {
       } else {
         const data = await response.json();
         console.log('Success:', data);
+        navigate('/confirm', { state: {phoneNumber} });
       }
     } catch (error) {
       console.error('Network Error:', error);
