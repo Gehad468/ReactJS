@@ -10,7 +10,20 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (!f_name || !l_name || !phone) {
+      alert('جميع الحقول مطلوبة');
+      return;
+  }
+  if(isNaN(phone))
+  {
+    alert('الرجاء إدخال ارقام فقط.');
+    return;
+  }
+
+  if (phone.length <= 8 || !phone.startsWith('2')) {
+      alert('يوجد خطأ في رقم الجوال');
+      return;
+  }
     const formData = {
       f_name,
       l_name,
