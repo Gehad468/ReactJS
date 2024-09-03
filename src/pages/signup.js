@@ -12,7 +12,21 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        if (!name || !phoneNumber || !nationalId) {
+            alert('جميع الحقول مطلوبة');
+            return;
+        }
+    
+        if (phoneNumber.length <= 8 || !phoneNumber.startsWith('2')) {
+            alert('يوجد خطأ في رقم الجوال');
+            return;
+        }
+        if (nationalId.length !== 14) {
+            alert('رقم الهوية يجب أن يكون 14 رقم');
+            return;
+        }
+    
+    
         const formData = {
             name,
             phoneNumber,

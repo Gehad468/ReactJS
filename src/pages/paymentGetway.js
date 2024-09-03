@@ -7,6 +7,9 @@ import mastercard from "../assets/mastercard.jpeg";
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom';
+
+
 
 const countries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
@@ -41,6 +44,11 @@ const countries = [
 ];
 
 const PaymentGetway = () => {
+  
+const location = useLocation();
+const { phoneNumber, selectedPlan } = location.state;
+console.log("phone",phoneNumber, "selected Plan",selectedPlan);
+
   return (
     <div className="container my-5">
       <Header content='بوابة الدفع' />
