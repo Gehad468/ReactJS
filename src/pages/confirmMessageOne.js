@@ -39,7 +39,7 @@ const ConfirmMessageOne = () => {
       phone: phoneNumber, 
     };
   
-    console.log('Data to be sent:', formData); // تحقق من البيانات هنا
+    console.log('Data to be sent:', formData);
   
     try {
       const response = await fetch('http://localhost:3000/auth/verify', {
