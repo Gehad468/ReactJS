@@ -5,7 +5,7 @@ import ButtonOne from "../components/buttonOne";
 
 const ConfirmMessageOne = () => {
   const [otp, setOtp] = useState('');
-  const [countdown, setCountdown] = useState({ minutes: 5, seconds: 0 });
+  const [countdown, setCountdown] = useState({ minutes: 1, seconds: 0 });
   const location = useLocation(); 
   const navigate = useNavigate();
   // const phoneNumber = location.state.phoneNumber;
@@ -30,13 +30,16 @@ const ConfirmMessageOne = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (otp.length !== 6) {
+      alert('الرجاء إدخال كود مكون من 6 أرقام.');
+      return;
+    }
     const formData = {
       otp,
       phone: phoneNumber, 
     };
   
-    console.log('Data to be sent:', formData);
+    console.log('Data to be sent:', formData); // تحقق من البيانات هنا
   
     try {
       const response = await fetch('http://localhost:3000/auth/verify', {
@@ -65,6 +68,7 @@ const ConfirmMessageOne = () => {
       console.error('Network Error:', error);
     }
   };
+  
   
   
   
@@ -112,18 +116,18 @@ const ConfirmMessageOne = () => {
             كود التفعيل:
           </label>
           <div className="col-sm-4">
-            {[...Array(6)].map((_, index) => (
-              <input
-                key={index}
-                type="text"
-                maxLength="1"
-                className="input-style mx-1 text-center"
-                onChange={(e) => {
-                  let otpValue = otp.split('');
-                  otpValue[index] = e.target.value;
-                  setOtp(otpValue.join(''));
-                }}
-                value={otp[index] || ''}
+          {[...Array(6)].map((_, index) => (
+  <input
+    key={index}
+    type="text"
+    maxLength="1"
+    className="input-style mx-1 text-center"
+    onChange={(e) => {
+      const otpValue = otp.split('');
+      otpValue[index] = e.target.value;
+      setOtp(otpValue.join(''));
+    }}
+    value={otp[index] || ''}
               />
             ))}
           </div>
@@ -150,7 +154,7 @@ const ConfirmMessageOne = () => {
 
       </div>
       <div className="text-center mt-3">
-        <ButtonOne content="تأكيد" onClick={handleSubmit} />
+      <ButtonOne content="تأكيد" onClick={handleSubmit} />
       </div>
     </div>
   );
