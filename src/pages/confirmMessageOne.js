@@ -193,7 +193,7 @@ const ConfirmMessageOne = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (otp.length !== 6) {
+    if (otp.length !== 6 || isNaN(otp)) {
       alert('الرجاء إدخال كود مكون من 6 أرقام.');
       return;
     }
@@ -216,9 +216,11 @@ const ConfirmMessageOne = () => {
   
       if (!response.ok) {
         console.error(`HTTP error! Status: ${response.status}`);
+        alert('الرمز غير صحيح، يرجى المحاولة مرة أخرى.');
         try {
           const errorData = await response.json();
           console.error('Response error:', errorData);
+
         } catch (jsonError) {
           console.error('Error parsing JSON response:', jsonError);
         }
