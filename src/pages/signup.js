@@ -7,24 +7,38 @@ const Signup = () => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [nationalId, setNationalId] = useState('');
+    const [errors, setErrors] = useState({});
     const isAdmin = true;
     const navigate = useNavigate();
+    const validateInputs = () => {
+        const newErrors = {};
+        if (!name) newErrors.name = 'الاسم مطلوب';
+        if (!phoneNumber || phoneNumber.length <= 8 || !phoneNumber.startsWith('2')) {
+            newErrors.phoneNumber = 'يوجد خطأ في رقم الجوال';
+        }
+        if (!nationalId || nationalId.length !== 14) {
+            newErrors.nationalId = 'رقم الهوية يجب أن يكون 14 رقم';
+        }
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!name || !phoneNumber || !nationalId) {
-            alert('جميع الحقول مطلوبة');
-            return;
-        }
+        if (!validateInputs()) return;
+        // if (!name || !phoneNumber || !nationalId) {
+        //     alert('جميع الحقول مطلوبة');
+        //     return;
+        // }
     
-        if (phoneNumber.length <= 8 || !phoneNumber.startsWith('2')) {
-            alert('يوجد خطأ في رقم الجوال');
-            return;
-        }
-        if (nationalId.length !== 14) {
-            alert('رقم الهوية يجب أن يكون 14 رقم');
-            return;
-        }
+        // if (phoneNumber.length <= 8 || !phoneNumber.startsWith('2')) {
+        //     alert('يوجد خطأ في رقم الجوال');
+        //     return;
+        // }
+        // if (nationalId.length !== 14) {
+        //     alert('رقم الهوية يجب أن يكون 14 رقم');
+        //     return;
+        // }
     
     
         const formData = {
@@ -77,6 +91,7 @@ const Signup = () => {
                                     onChange={(e) => setName(e.target.value)}
                                     style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
+                                 <p className="text-danger">{errors.name}</p>
                             </div>
                         </div>
                         <div className="mb-3 row align-items-center">
@@ -91,6 +106,7 @@ const Signup = () => {
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                     style={{ backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem' }}
                                 />
+                                 <p className="text-danger">{errors.phoneNumber}</p>
                             </div>
                         </div>
                         <div className="mb-3 row align-items-center">
@@ -105,6 +121,7 @@ const Signup = () => {
                                     onChange={(e) => setNationalId(e.target.value)}
                                     style={{  backgroundColor: 'rgba(189, 189, 189, 0.25)',fontSize:'1.3rem'}}
                                 />
+                                 <p className="text-danger">{errors.nationalId}</p>
                             </div>
                         </div>
                         <input 
