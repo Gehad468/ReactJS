@@ -171,6 +171,7 @@ const ConfirmMessageOne = () => {
   const [countdown, setCountdown] = useState({ minutes: 1, seconds: 0 });
   const location = useLocation(); 
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
   // const phoneNumber = location.state.phoneNumber;
   const { name, phoneNumber, nationalId , isAdmin} = location.state;
 
@@ -191,12 +192,24 @@ const ConfirmMessageOne = () => {
     return () => clearInterval(timer);
   }, [countdown]);
 
+  const validateOtp = (otp) => {
+    if (otp.length !== 6 || isNaN(otp)) {
+      setErrors({ otpValue: 'الرجاء إدخال كود مكون من 6 أرقام.' });
+      return false;
+    }
+    setErrors({});
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (otp.length !== 6 || isNaN(otp)) {
-      alert('الرجاء إدخال كود مكون من 6 أرقام.');
+    if (!validateOtp(otp)) {
       return;
     }
+    // if (otp.length !== 6 || isNaN(otp)) {
+    //   alert('الرجاء إدخال كود مكون من 6 أرقام.');
+    //   return;
+    // }
     const formData = {
       otp,
       phone: phoneNumber, 
@@ -216,7 +229,7 @@ const ConfirmMessageOne = () => {
   
       if (!response.ok) {
         console.error(`HTTP error! Status: ${response.status}`);
-        alert('الرمز غير صحيح، يرجى المحاولة مرة أخرى.');
+        setErrors({ otpFalse: 'الرمز غير صحيح، يرجى المحاولة مرة أخرى.' });
         try {
           const errorData = await response.json();
           console.error('Response error:', errorData);
@@ -286,6 +299,8 @@ const ConfirmMessageOne = () => {
             كود التفعيل:
           </label>
           <div className="col-sm-4">
+          <p className="text-danger">{errors.otpFalse}</p>
+          <p className="text-danger">{errors.otpValue}</p>
           {[...Array(6)].map((_, index) => (
   <input
     key={index}
