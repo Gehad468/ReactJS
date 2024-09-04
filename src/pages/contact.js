@@ -86,7 +86,7 @@ const Contact = () => {
           <div className="row mb-3">
             <div className="col">
               <input
-                type="number"
+                type="text"
                 className="form-control form-control-sm"
                 placeholder="رقم الجوال"
                 value={phone}
