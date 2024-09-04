@@ -7,22 +7,49 @@ const Contact = () => {
   const [l_name, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [msg, setMessage] = useState('');
+  const [errors, setErrors] = useState({});
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!f_name) {
+      newErrors.f_name = 'الاسم الأول مطلوب';
+    }
+    if (!l_name) {
+      newErrors.l_name = 'الاسم الأخير مطلوب';
+    }
+    if (!phone) {
+      newErrors.phone = 'رقم الجوال مطلوب';
+    } else if (isNaN(phone)) {
+      newErrors.phone = 'الرجاء إدخال أرقام فقط';
+    } else if (phone.length <= 8 || !phone.startsWith('2')) {
+      newErrors.phone = 'يوجد خطأ في رقم الجوال';
+    }
+    if (!msg) {
+      newErrors.msg = 'الرساله مطلوبة';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!f_name || !l_name || !phone) {
-      alert('جميع الحقول مطلوبة');
-      return;
-  }
-  if(isNaN(phone))
-  {
-    alert('الرجاء إدخال ارقام فقط.');
-    return;
-  }
 
-  if (phone.length <= 8 || !phone.startsWith('2')) {
-      alert('يوجد خطأ في رقم الجوال');
-      return;
+
+  //   if (!f_name || !l_name || !phone) {
+  //     alert('جميع الحقول مطلوبة');
+  //     return;
+  // }
+  // if(isNaN(phone))
+  // {
+  //   alert('الرجاء إدخال ارقام فقط.');
+  //   return;
+  // }
+
+  // if (phone.length <= 8 || !phone.startsWith('2')) {
+  //     alert('يوجد خطأ في رقم الجوال');
+  //     return;
+  // }
+  if (!validateForm()) {
+    return;
   }
     const formData = {
       f_name,
@@ -47,6 +74,11 @@ const Contact = () => {
       } else {
         const data = await response.json();
         console.log('Success:', data);
+        setFirstName('');
+        setLastName('');
+        setPhone('');
+        setMessage('');
+        setErrors({});
       }
     } catch (error) {
       console.error('Error:', error);
@@ -67,9 +99,10 @@ const Contact = () => {
                 placeholder="الاسم الأول"
                 value={f_name}
                 onChange={(e) => setFirstName(e.target.value)}
-                required
+                // required
                 style={{ height: '50px', borderRadius: '20px' ,fontSize:'1.1rem'}}
               />
+                <p className="text-danger">{errors.f_name}</p>
             </div>
             <div className="col">
               <input
@@ -78,9 +111,10 @@ const Contact = () => {
                 placeholder="الاسم الأخير"
                 value={l_name}
                 onChange={(e) => setLastName(e.target.value)}
-                required
+                // required
                 style={{ height: '50px', borderRadius: '20px',fontSize:'1.1rem' }}
               />
+                <p className="text-danger">{errors.l_name}</p>
             </div>
           </div>
           <div className="row mb-3">
@@ -91,9 +125,10 @@ const Contact = () => {
                 placeholder="رقم الجوال"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                required
+                // required
                 style={{ height: '50px', borderRadius: '20px' ,fontSize:'1.1rem'}}
               />
+                <p className="text-danger">{errors.phone}</p>
             </div>
           </div>
           <div className="row mb-3">
@@ -104,9 +139,10 @@ const Contact = () => {
                 placeholder="الرسالة"
                 value={msg}
                 onChange={(e) => setMessage(e.target.value)}
-                required
+                // required
                 style={{ height: '200px', borderRadius: '20px',fontSize:'1.1rem' }}
               ></textarea>
+                <p className="text-danger">{errors.msg}</p>
             </div>
           </div>
           <div className="text-center mt-5">
