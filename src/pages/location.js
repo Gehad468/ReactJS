@@ -335,7 +335,6 @@
 
 // export default Location;
 import React, { useState } from 'react';
-// import GetLocation from 'react-native-get-location';
 import Header from '../components/header';
 import ButtonTwo from '../components/buttonTwo';
 import ButtonOne from '../components/buttonOne';
@@ -351,7 +350,17 @@ const Location = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted!');
+  
+    if (!locationName) {
+      console.warn('يرجى ملء جميع الحقول.');
+   
+      return; 
+    }
+  
+     console.log('تم تقديم النموذج!');
+    console.log('الموقع:', locationName);
+    console.log('السبب:', reason);
+  
     setLocationName('');
     setImageEntr('');
     setReason('');
@@ -360,7 +369,9 @@ const Location = () => {
   const handleLocationAccess = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
+        const { latitude, longitude } = position.coords;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        setLocationName(`Lat: ${latitude}, Lon: ${longitude}`);
       }, (error) => {
         console.error("Error getting location:", error);
       });
@@ -368,7 +379,6 @@ const Location = () => {
       console.error("Geolocation is not supported by this browser.");
     }
   };
-  
   
   const handleCameraAccess = () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -433,7 +443,7 @@ const Location = () => {
               </div>
             </div>
             <div className="text-center mt-5 ">
-              <ButtonTwo content='ارسال' onClick={handleSubmit}/>
+            <ButtonTwo content='ارسال' onClick={handleSubmit} />
             </div>
             <div className="row mb-3">
               <div className="col">
@@ -447,7 +457,7 @@ const Location = () => {
                 ></textarea>
               </div>
             </div>
-  
+
             <div className="text-center mt-5">
               <ButtonOne content='إعادة جدولة' onClick={handleReschedule} />
               {showSuccessMessage && <MessageSuccess onClose={() => setShowSuccessMessage(false)} />}
