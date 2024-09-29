@@ -433,7 +433,7 @@ const Location = () => {
               </div>
             </div>
             <div className="text-center mt-5 ">
-              <ButtonTwo content='ارسال' />
+              <ButtonTwo content='ارسال' onClick={handleSubmit}/>
             </div>
             <div className="row mb-3">
               <div className="col">
