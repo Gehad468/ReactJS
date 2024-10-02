@@ -218,7 +218,7 @@ const ConfirmMessageOne = () => {
     console.log('Data to be sent:', formData);
   
     try {
-      const response = await fetch('http://localhost:3000/auth/verify', {
+      const response = await fetch('http://209.250.233.30:3000/auth/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -257,7 +257,7 @@ const ConfirmMessageOne = () => {
   
   const resendOTP = async () => {
     try {
-      const response = await fetch('http://localhost:3000/auth/sendOTP', {
+      const response = await fetch('http://209.250.233.30:3000/auth/sendOTP', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

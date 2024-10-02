@@ -59,7 +59,7 @@ const Contact = () => {
     };
     
     try {
-      const response = await fetch('http://localhost:3000/p/contact-us', {
+      const response = await fetch('http://209.250.233.30:3000/p/contact-us', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

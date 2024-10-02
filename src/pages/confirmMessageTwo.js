@@ -10,15 +10,12 @@ function ConfirmTwo() {
     const [selectedPlan, setSelectedPlan] = useState(null);
     const location = useLocation();
     const navigate = useNavigate();
-
     const { phoneNumber, token } = location.state;
 
-    
     useEffect(() => {
-        console.log("phone",phoneNumber, "token",token);
         const fetchPricingPlans = async () => {
             try {
-                const response = await fetch('http://localhost:3000/pricing/plans', {
+                const response = await fetch('http://209.250.233.30:3000/pricing/plans', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -26,17 +23,14 @@ function ConfirmTwo() {
                     },
                 });
 
-                if (!response.ok) {
-                    console.error(`HTTP error! Status: ${response.status}`);
-                    const errorData = await response.json();
-                    console.error('Pricing API response error:', errorData);
-                } else {
+                if (response.ok) {
                     const data = await response.json();
-                    console.log('Pricing Plans:', data);
-                    setPlans(data); 
+                    setPlans(data);
+                } else {
+                    console.error('Failed to fetch plans');
                 }
             } catch (error) {
-                console.error('Network Error:', error);
+                console.error('Error fetching pricing plans:', error);
             }
         };
 
@@ -58,7 +52,7 @@ function ConfirmTwo() {
 
     return (
         <Container>
-            <div className="text-size-medium text-center m-3">
+            <div className="text-center m-3">
                 <strong>إليك خطط الاشتراك لتوفير تسليم الشحنات بنسبة 100 %</strong>
             </div>
             <Row className="justify-content-center my-4">
@@ -74,10 +68,7 @@ function ConfirmTwo() {
                     </Col>
                 ))}
             </Row>
-            <div className="text-size-medium text-center m-4">
-                <strong className="m-3">لا تفوت فرصة الاشتراك وتحسين تجربة تسليم الشحنات الخاصة بك !</strong>
-                <br />
-                <br />
+            <div className="text-center m-4">
                 <ButtonOne content="استكمال التسجيل" onClick={handleButtonClick} />
             </div>
         </Container>

@@ -49,7 +49,7 @@ const Signup = () => {
         };
         
         try {
-            const response = await fetch('http://localhost:3000/auth/sendOTP', {
+            const response = await fetch('http://209.250.233.30:3000/auth/sendOTP', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
