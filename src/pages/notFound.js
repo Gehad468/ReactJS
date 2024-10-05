@@ -3,13 +3,17 @@ import '../notFound.css';
 
 const NotFound = () => {
     return (
-        <div className="notFound text-center m-5 p-5 ">
-            <h1>404</h1>
-            <h2>معذرة!</h2>
-            <h2>لم يتم الوصول للصفحة المطلوبة </h2>
+        <div 
+            className="d-flex justify-content-center align-items-center" 
+            style={{ minHeight: '100vh' }}
+        >
+            <div className="text-center">
+                <h1 style={{ fontSize: '5rem' }}>404</h1> 
+                <h2 style={{ fontSize: '2rem' }}>معذرة!</h2>
+                <h2 style={{ fontSize: '2rem' }}>لم يتم الوصول للصفحة المطلوبة</h2>
+            </div>
         </div>
-    )
+    );
 }
-
 
 export default NotFound;

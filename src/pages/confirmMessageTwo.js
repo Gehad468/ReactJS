@@ -44,6 +44,7 @@ function ConfirmTwo() {
 
     const handleButtonClick = () => {
         if (selectedPlan) {
+            console.log(selectedPlan.attendancePay,phoneNumber);
             navigate('/payment', { state: { selectedPlan, phoneNumber } });
         } else {
             alert('Please select a plan first.');
