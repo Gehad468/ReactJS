@@ -481,6 +481,7 @@ import ButtonTwo from '../components/buttonTwo';
 import ButtonOne from '../components/buttonOne';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faCamera } from '@fortawesome/free-solid-svg-icons';
+import MessageSuccess from "../components/messageSucess";
 
 const Location = () => {
   const param = useParams();
@@ -491,6 +492,7 @@ const Location = () => {
   const [reason, setReason] = useState('');
   const videoRef = useRef(null); 
   const canvasRef = useRef(null); 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   
   const handleSubmit = (e) => {
@@ -506,6 +508,10 @@ const Location = () => {
     console.log('الموقع:', locationName);
     console.log('السبب:', reason);
     console.log('الصورة:', imageData);
+  };
+
+    const handleReschedule = () => {
+    setShowSuccessMessage(true);
   };
 
   const handleLocationAccess = () => {
@@ -701,7 +707,8 @@ const Location = () => {
             
 
             <div className="text-center mt-5">
-              <ButtonOne content='إعادة جدولة' />
+              <ButtonOne content='إعادة جدولة'onClick={handleReschedule} />
+              {showSuccessMessage && <MessageSuccess onClose={() => setShowSuccessMessage(false)} />}
               <ButtonOne content='إلغاء' />
             </div>
           </form>
