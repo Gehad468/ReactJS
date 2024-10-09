@@ -30,7 +30,7 @@ function App() {
             <Route path="/signup" element={<Signup />} exact/>
             <Route path="/terms" element={<TermsAndConditions />} exact/>
             <Route path="/recovery" element={<Terms />} exact/>
-            <Route path="/location" element={<Location />}exact />
+            <Route path="/location/:id" element={<Location />}exact />
             <Route path="/payment" element={<PaymentGetway />}exact />
             <Route path="/success" element={<SuccessfullyRegistered />} exact/>
             <Route path="/confirm" element={<ConfirmTwo />} />
