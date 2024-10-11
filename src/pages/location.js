@@ -724,14 +724,13 @@
 // export default Location;
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Header from '../components/header';
 import ButtonTwo from '../components/buttonTwo';
 import ButtonOne from '../components/buttonOne';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faCamera } from '@fortawesome/free-solid-svg-icons';
 import MessageSuccess from "../components/messageSucess";
-import { useLocation } from 'react-router-dom';
 
 const Location = () => {
   const param = useParams();
@@ -757,44 +756,77 @@ const Location = () => {
     setShowSuccessMessage(true);
   };
 
+  const handleTakePicture = () => {
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+  
+    if (canvas && video) {
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  
+      const fileURL = canvas.toDataURL('image/png');
+      const imageBlob = dataURItoBlob(fileURL);
+      const imageName = `photo_${Date.now()}.png`;
+      const file = new File([imageBlob], imageName, { type: 'image/png' });
+  
+      setFile(file); 
+      console.log("Captured file:", file); 
+      console.log("Captured file URL:", fileURL); 
+  
+      const stream = video.srcObject;
+      const tracks = stream.getTracks();
+      tracks.forEach(track => track.stop());
+      video.srcObject = null;
+      setShowCamera(false);
+  
+      console.log("تم التقاط الصورة بنجاح!");
+    } else {
+      console.error("Cannot capture image: canvas or video is null.");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (!locationName || !file) {
       console.warn('يرجى ملء جميع الحقول.');
       return;
     }
-   
+  
     const [latString, lonString] = locationName.replace('Lat: ', '').replace('Lon: ', '').split(', ');
-    const lat = parseFloat(latString);  
-    const lon = parseFloat(lonString);  
-
-
-    const imageBlob = dataURItoBlob(file);
-    const imageName = `photo_${Date.now()}.png`; 
-
+    const lit = parseFloat(latString);
+    const lon = parseFloat(lonString);
+  
     const formData = new FormData();
-    formData.append('file', imageBlob, imageName);  
-
-   
+    formData.append('file', file);
+  
     const responsePayload = {
-      loc: { lat, lon },  
-      isCanceled,         
-      postponed,         
-      cause,             
+      lit,
+      lon,
+      isCanceled,
+      postponed,
+      cause: cause.trim() === '' ? null : cause,
     };
-
-    formData.append('response', JSON.stringify(responsePayload)); 
+  
+    formData.append('response', JSON.stringify(responsePayload));
+    console.log('بيانات النموذج:', {
+      file: file.name,
+      response: responsePayload,
+    });
 
     try {
       const response = await fetch(`http://209.250.233.30:3000/prods/confirm/${id}`, {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: formData,
+        body: JSON.stringify(formData),
+        withCredentials: true
       });
-
+  
       if (response.ok) {
         console.log('تم إرسال البيانات بنجاح!');
         setShowSuccessMessage(true);
@@ -813,7 +845,7 @@ const Location = () => {
     const ab = new ArrayBuffer(byteString.length);
     const ia = new Uint8Array(ab);
     for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
+        ia[i] = byteString.charCodeAt(i);
     }
     return new Blob([ab], { type: mimeString });
   };
@@ -872,30 +904,13 @@ const Location = () => {
     setShowCamera(true);
   };
 
-  const handleTakePicture = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
-
-    if (canvas && video) {
-      const context = canvas.getContext('2d');
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      const fileURL = canvas.toDataURL('image/png');
-      setFile(fileURL);
-
-      const stream = video.srcObject;
-      const tracks = stream.getTracks();
-      tracks.forEach(track => track.stop());
-      video.srcObject = null;
-      setShowCamera(false);
-
-      console.log("تم التقاط الصورة بنجاح!");
-    } else {
-      console.error("Cannot capture image: canvas or video is null.");
-    }
-  };
+  useEffect(() => {
+    return () => {
+      if (file) {
+        URL.revokeObjectURL(file);
+      }
+    };
+  }, [file]);
 
   return (
     <div className="container my-5" style={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.4)', padding: '20px' }}>
@@ -958,14 +973,13 @@ const Location = () => {
               </div>
             )}
 
-
             {showCamera && (
               <div className="row mb-3">
                 <div className="col text-center">
                   <button
                     type="button"
                     className="btn  rounded-pill"
-                    style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white",fontSize:"1.3rem"}}
+                    style={{ background: "linear-gradient(to bottom, #135D66 0%, #22A6B6 100%)", color: "white", fontSize:"1.3rem"}}
                     onClick={handleTakePicture}
                   >
                     التقاط الصورة
@@ -974,13 +988,14 @@ const Location = () => {
               </div>
             )}
 
-            {file && (
+           {file && (
               <div className="row mb-3">
                 <div className="col text-center">
-                  <img src={file} alt="Captured" style={{ maxWidth: '100%', borderRadius: '10px' }} />
+                  <img src={URL.createObjectURL(file)} alt="Captured" style={{ maxWidth: '100%', borderRadius: '10px' }} />
                 </div>
               </div>
             )}
+
 
             <div className="text-center mt-5">
               <ButtonTwo content='ارسال' />
