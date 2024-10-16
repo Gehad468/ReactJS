@@ -10,7 +10,7 @@ function ConfirmTwo() {
     const [selectedPlan, setSelectedPlan] = useState(null);
     const location = useLocation();
     const navigate = useNavigate();
-    const { phoneNumber, token } = location.state;
+    const { phoneNumber, token,errorMessage } = location.state;
 
     useEffect(() => {
         const fetchPricingPlans = async () => {
@@ -53,6 +53,11 @@ function ConfirmTwo() {
 
     return (
         <Container>
+            {errorMessage && (
+                <div className="alert alert-danger text-center" role="alert">
+                    {errorMessage}
+                </div>
+            )}
             <div className="text-center m-3">
                 <strong>إليك خطط الاشتراك لتوفير تسليم الشحنات بنسبة 100 %</strong>
             </div>

@@ -50,6 +50,7 @@ const Signup = () => {
                 const data = await response.json();
                 console.log('Success:', data);
                 // navigate('/otp', { state: { phoneNumber } });
+                localStorage.setItem('phoneNumber', phoneNumber);
                 navigate('/otp', { state: { name, phoneNumber, nationalId , isAdmin} });
 
             }

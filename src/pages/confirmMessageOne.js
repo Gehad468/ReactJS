@@ -74,6 +74,7 @@ const ConfirmMessageOne = () => {
         console.log('Success:', data);
         const { token } = data;
         if (token) {
+          localStorage.setItem('token', token);
           navigate('/confirm', { state: { phoneNumber, token } });
         } else {
           console.error('Token is missing in response data.');

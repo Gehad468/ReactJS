@@ -14,6 +14,7 @@ import Signup from './pages/signup';
 import Terms from './pages/recovery';
 import Home from './pages/home';
 import AboutUs from './pages/about';
+import PaymentStatus from './pages/payementStatus';
 import NotFound from './pages/notFound';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
             <Route path="/payment" element={<PaymentGetway />}exact />
             <Route path="/success" element={<SuccessfullyRegistered />} exact/>
             <Route path="/confirm" element={<ConfirmTwo />} />
-
+            <Route path="/payment-status" element={<PaymentStatus />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
