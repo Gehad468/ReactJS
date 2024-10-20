@@ -8,7 +8,7 @@ const Signup = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [nationalId, setNationalId] = useState('');
     const [errors, setErrors] = useState({});
-    const isAdmin = true;
+    
     const navigate = useNavigate();
     const validateInputs = () => {
         const newErrors = {};
@@ -30,7 +30,6 @@ const Signup = () => {
             name,
             phoneNumber,
             nationalId,
-            isAdmin,
         };
         
         try {
@@ -110,11 +109,7 @@ const Signup = () => {
                                  <p className="text-danger">{errors.nationalId}</p>
                             </div>
                         </div>
-                        <input 
-                            type="hidden" 
-                            name="isAdmin" 
-                            value={isAdmin} 
-                        />
+                        
                         <div className="text-center mt-5">
                             <ButtonOne content='اضغط للتحقق من رقم الجوال'/>
                         </div>
