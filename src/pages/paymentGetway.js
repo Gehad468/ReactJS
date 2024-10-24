@@ -9,7 +9,8 @@ const PaymentGetway = () => {
   const phoneNumber = location.state?.phoneNumber ;
   const selectedPlan = location.state?.selectedPlan || { attendancePay: 0, title: 'Default Plan' };
   const paymentId = location.state?.paymentId || 'defaultPaymentId';
-  
+  const name = localStorage.getItem('name');
+
   const [paymentUrl, setPaymentUrl] = useState('');
 
   const createPayment = async () => {
@@ -20,15 +21,15 @@ const PaymentGetway = () => {
       save_card: false,
       description: `Payment for ${selectedPlan.title}`,
       reference: {
-        transaction: `tx_${Date.now()}`,
+        transaction: `W${Date.now()}`,
         order: `order_${Date.now()}`,
       },
       customer: {
-        first_name: "VISION/MATAAJER/ZED/ZERO",
+        first_name: `VISION/MATAAJER/ZED/${name}`,
         email: "email@email.com",
         phone: {
           country_code: "966",
-          number: "203330303",
+          number: phoneNumber,
         },
       },
       source: {
