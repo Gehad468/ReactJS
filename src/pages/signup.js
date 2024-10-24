@@ -50,7 +50,7 @@ const Signup = () => {
                 console.log('Success:', data);
                 // navigate('/otp', { state: { phoneNumber } });
                 localStorage.setItem('phoneNumber', phoneNumber);
-                navigate('/otp', { state: { name, phoneNumber, nationalId , isAdmin} });
+                navigate('/otp', { state: { name, phoneNumber, nationalId} });
 
             }
         } catch (error) {
